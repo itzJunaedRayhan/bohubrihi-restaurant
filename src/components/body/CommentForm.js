@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Input } from 'reactstrap';
 
-
 class CommentForm extends Component {
     constructor(props) {
         super(props);
@@ -19,20 +18,22 @@ class CommentForm extends Component {
             [event.target.name]: event.target.value
         })
     }
-    
 
     handleSubmit = event => {
-        this.props.addComment(this.props.dishId, this.state.rating, this.state.author, this.state.comment)
+        //console.log(this.state);
+        this.props.addComment(this.props.dishId, this.state.rating, this.state.author, this.state.comment);
 
         this.setState({
             author: '',
             rating: '',
             comment: ''
         });
+
         event.preventDefault();
     }
 
     render() {
+        //console.log(this.props);
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
